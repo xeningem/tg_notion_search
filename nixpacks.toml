@@ -1,6 +1,5 @@
 providers = ["...", "python"]
 
 [phases.setup]
-    nixPkgs = ['...', "python3.11-pip"]
-    cmds = ["...", "pip install -r requirements.txt"]
-
+    nixPkgs = ['...']
+    cmds = ["...", "python -m venv /opt/venv && . /opt/venv/bin/activate && pip install -r requirements.txt"]
