@@ -1,14 +1,16 @@
 import logging
+import os
 import time
 
-from dotenv import dotenv_values
+from dotenv import dotenv_values, load_dotenv
 from telegram import ForceReply, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
-config = dotenv_values(".env")
-NOTION_TOKEN = config["NOTION_TOKEN"]
-DATABASE_ID = config["DATABASE_ID"]
-TG_TOKEN = config["TG_TOKEN"]
+load_dotenv(".env")
+
+NOTION_TOKEN = os.getenv("NOTION_TOKEN")
+DATABASE_ID = os.getenv("DATABASE_ID")
+TG_TOKEN = os.getenv("TG_TOKEN")
 # Enable logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
